@@ -52,6 +52,9 @@ func main() {
 	}))
 
 	router.GET("/ping", func(c *gin.Context) {
+        c.String(200, "Hello Server!")
+    })
+	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"status": "OK",
 		})
