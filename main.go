@@ -36,7 +36,7 @@ func main() {
 		Secure:  true,
 	}
 
-	db, err := db.OpenDB(os.Getenv("POSTGRES_URI"))
+	db, err := db.OpenDB(os.Getenv("DATABASE_URL"))
 	if err != nil {
 		panic(err)
 	}
