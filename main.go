@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -18,9 +19,10 @@ import (
 )
 
 func init() {
-	err := godotenv.Load()
+	err := godotenv.Load("./.env")
+
 	if err != nil {
-		panic("failed to load env variables")
+		log.Fatalf("Error loading .env files")
 	}
 }
 
@@ -51,9 +53,10 @@ func main() {
 		MaxAge:           12 * time.Hour,
 	}))
 
-	router.GET("/ping", func(c *gin.Context) {
-        c.String(200, "Hello Server!")
-    })
+	router.GET("/", func(c *gin.Context) {
+		c.String(200, "Hello Server!")
+	})
+
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"status": "OK",
