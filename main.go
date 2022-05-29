@@ -19,11 +19,12 @@ import (
 )
 
 func init() {
-	err := godotenv.Load()
-
-	if err != nil {
-		log.Fatalf("Error loading .env files")
-	}
+    if os.Getenv("APP_ENV") != "production" {
+	    err := godotenv.Load()
+        if err != nil {
+            log.Fatalf("Error loading .env files")
+        }
+    }
 }
 
 func main() {
