@@ -30,7 +30,7 @@ func main() {
 		Key:     os.Getenv("PUSHER_KEY"),
 		Secret:  os.Getenv("PUSHER_SECRET"),
 		Cluster: os.Getenv("PUSHER_CLUSTER"),
-        Secure: true,
+		Secure:  true,
 	}
 
 	db, err := db.OpenDB(os.Getenv("POSTGRES_URI"))

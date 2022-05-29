@@ -2,7 +2,7 @@ package db
 
 import (
 	"database/sql"
-    _ "github.com/lib/pq"
+	_ "github.com/lib/pq"
 )
 
 func OpenDB(connStr string) (*sql.DB, error) {
@@ -16,8 +16,8 @@ func OpenDB(connStr string) (*sql.DB, error) {
 		panic(err)
 	}
 
-    query := `CREATE TABLE IF NOT EXISTS requests(email TEXT, name TEXT, state TEXT, city TEXT, plan_id TEXT, installer_id TEXT)`
-    _, err = db.Exec(query)
+	query := `CREATE TABLE IF NOT EXISTS requests(email TEXT, name TEXT, state TEXT, city TEXT, plan_id TEXT, installer_id TEXT)`
+	_, err = db.Exec(query)
 	if err != nil {
 		panic(err)
 	}
