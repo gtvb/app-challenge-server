@@ -46,7 +46,7 @@ func main() {
 
 	router := gin.Default()
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
+        AllowOrigins:     []string{"https://app-challenge-web.vercel.app"},
 		AllowMethods:     []string{"POST", "GET"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Content-Length"},
 		ExposeHeaders:    []string{"Content-Length"},
